@@ -19,3 +19,25 @@
   min-width: 40%;
   margin-top: 20px;
 }
+
+.challengesWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 100px;
+  margin-top: 20px;
+  border: solid 1px #00423f;
+  width: 80%;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid aqua;
+  background-color: aqua;
+  color: white;
+  cursor: pointer;
+}

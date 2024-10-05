@@ -1,0 +1,33 @@
+.challengeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: aqua;
+  min-width: 300px;
+  padding: 10px;
+  border: solid 1px #00bddf;
+  border-radius: 5%;
+
+  button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #001516;
+    background-color: #001516;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #00423f;
+  }
+
+
+}
+
+.challenge-time {
+  border: solid 1px #00423f;
+  padding: 10px;
+  margin-top: 0;
+}
