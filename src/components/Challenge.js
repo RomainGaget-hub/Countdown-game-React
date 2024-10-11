@@ -7,17 +7,26 @@ export default function Challenge({ title, targetTime }) {
     const [timerStarted, setTimerStarted] = useState(false)
     const [timerExpired, setTimerExpired] = useState(false)
 
-    const handleStart = (time) => {
+    const handleStart = (timeSet) => {
+        setTimerExpired(false)
+        const timeSetCalc = timeSet * 1000
+
 
         time.current = setTimeout(() => {
+            // Set the timer as expired and stop the timer
             setTimerExpired(true)
-        }, time * 1000)
+            setTimerStarted(false)
+        }, timeSetCalc)
 
+        // Mark the timer as started
         setTimerStarted(true)
     }
 
     const handleStop = () => {
+        // Clear the timeout to stop the timer
         clearTimeout(time.current)
+        // Mark the timer as stopped
+        setTimerStarted(false)
     }
     return (
         <div className="challengeWrapper">
@@ -25,7 +34,9 @@ export default function Challenge({ title, targetTime }) {
             <p className="challenge-time">
                 {targetTime} seconds
             </p>
-            <button onClick={timerStarted ? handleStop : handleStart}>{timerStarted ? 'Stop Challenge' : 'Start Challenge'}</button>
+            <button onClick={timerStarted ? handleStop : () => handleStart(targetTime)}>{timerStarted ? 'Stop Challenge' : 'Start Challenge'}</button>
+            <p>{timerStarted ? 'Timer is running' : 'Timer inactive'}</p>
+            <p>{timerExpired && 'Failed'}</p>
         </div>
     )
 }
